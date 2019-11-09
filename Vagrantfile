@@ -44,6 +44,28 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
                         vb.customize ["modifyvm", :id, "--memory", "2024"]
                 end
         end
+    config.vm.define "master1" do |node|
+                node.vm.network "private_network", ip: "192.168.50.11"
+                node.vm.hostname = "master1"
+
+                node.vm.provision :shell, inline: "cat /vagrant/ssh-key.pub >> .ssh/authorized_keys"
+
+                config.vm.provider :virtualbox do |vb|
+                        vb.customize ["modifyvm", :id, "--memory", "2024"]
+                end
+        end
+
+    config.vm.define "master1" do |node|
+                node.vm.network "private_network", ip: "192.168.50.11"
+                node.vm.hostname = "master1"
+
+                node.vm.provision :shell, inline: "cat /vagrant/ssh-key.pub >> .ssh/authorized_keys"
+
+                config.vm.provider :virtualbox do |vb|
+                        vb.customize ["modifyvm", :id, "--memory", "2024"]
+                end
+        end
+
 
 	config.vm.define "node1" do |node|
 		node.vm.network "private_network", ip: "192.168.50.21"
