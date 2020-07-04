@@ -1,0 +1,8 @@
+---
+- name: create kubernetes manifests config directory
+  file: path={{ manifest_config_dir }} state=directory
+
+- name: Write etcd static pods file
+  template: src=etcd.yaml.j2 dest={{ manifest_config_dir }}/etcd.yaml
+  register: etcd_yaml
+

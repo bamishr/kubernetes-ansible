@@ -1,0 +1,41 @@
+---
+- name: Gather OS-specific variables
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_distribution }}-{{ ansible_distribution_major_version}}.yml"
+    - "{{ ansible_distribution }}.yml"
+  tags: vars
+
+- name: Install required packages on {{ ansible_distribution }}
+  package:
+    name: "{{ containerd_packages }}"
+    state: latest
+
+- name: Get Containerd
+  unarchive:
+    src: "{{ containerd_fetch_uri | default('https://storage.googleapis.com/cri-containerd-release/cri-containerd-' + containerd.release_version + '.linux-amd64.tar.gz') }}"
+    dest: "/"
+    remote_src: yes
+    
+- name: Create a directory for containerd config
+  file:
+    path: /etc/containerd
+    state: directory
+
+- name: Add containerd config file
+  blockinfile:
+    path: /etc/containerd/config.toml
+    create: yes
+    block: |
+      root = "/var/lib/containerd"
+      state = "/run/containerd"
+      oom_score = -999
+      disabled_plugins = ["restart"]
+      subreaper = true
+
+- name: Start containerd service
+  systemd:
+    name: containerd
+    daemon_reload: yes
+    state: started
+    enabled: yes

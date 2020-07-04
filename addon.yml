@@ -1,0 +1,12 @@
+---
+# This playbook deploys kubernetes addons.
+
+# launch addons
+# run only cluster is fully operation
+- hosts: masters
+  roles:
+    -  addon
+  tags:
+    - addon
+    - dns
+    - proxy

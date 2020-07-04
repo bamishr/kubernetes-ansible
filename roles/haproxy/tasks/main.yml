@@ -1,0 +1,27 @@
+---
+- name: Install haproxy packages
+  package:
+    name:
+      - haproxy
+    state: latest
+    update_cache: yes
+
+- name: Copy haproxy config file
+  template:
+    src: haproxy.cfg.j2
+    dest: "{{ haproxy.config_dir }}/haproxy.cfg"
+  register: ha_config
+
+- name: Start and enable haproxy service
+  service:
+    name: haproxy
+    enabled: yes
+    state: started
+    daemon_reload: yes
+  register: haproxy_start
+
+- name: Restat haproxy service after config change
+  service:
+    name: haproxy
+    state: restarted
+  when: ha_config is changed

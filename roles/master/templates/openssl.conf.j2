@@ -1,0 +1,5 @@
+subjectAltName = @alt_names
+[alt_names]
+DNS.1 = {{ ansible_hostname }}
+DNS.2 = {{ ansible_fqdn }}
+IP.1 = {{ hostvars[inventory_hostname]['ansible_' + node_interface].ipv4.address }}
