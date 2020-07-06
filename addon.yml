@@ -10,3 +10,15 @@
     - addon
     - dns
     - proxy
+  dev:
+    - addon
+    - dns
+    - proxy
+  qa:
+  - addon
+  - dns
+  - proxy
+  prod:
+  - addon
+  - dns
+  - proxy
