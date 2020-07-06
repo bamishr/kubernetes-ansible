@@ -9,7 +9,7 @@ Download the Kubernetes-Ansible playbook and set up variable according to need i
 [all.yml](group_vars/all.yml.example). Please read this file carefully and modify according to your need.
 
 ```
-git clone https://github.com/pawankkamboj/kubernetes-ansible.git
+git clone https://github.com/bamishr/kubernetes-ansible.git
 cd kubernetes-ansible
 cp group_vars/all.yml.example group_vars/all.yml
 ansible-playbook -i inventory cluster.yml
