@@ -12,7 +12,7 @@
 # Install sslcert
 - hosts: sslhost
   roles:
-    - role: sslcert 
+    - role: sslcert
   tags:
     - sslcert
 
@@ -59,3 +59,21 @@
     - role: node
   tags:
     - node
+  # new code
+  - hosts: masters1
+    roles:
+      - { role: keepalived, when: keepalived.enabled }
+    tags:
+      - keepalived
+
+  - hosts: masters2
+    roles:
+      - { role: keepalived, when: keepalived.enabled }
+    tags:
+      - keepalived
+
+  - hosts: masters3
+    roles:
+      - { role: keepalived, when: keepalived.enabled }
+    tags:
+      - keepalived
