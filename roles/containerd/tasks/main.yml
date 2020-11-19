@@ -32,6 +32,16 @@
       oom_score = -999
       disabled_plugins = ["restart"]
       subreaper = true
+- name: Get Containerd
+  unarchive:
+    src: "{{ containerd_fetch_uri | default('https://storage.googleapis.com/cri-containerd-release/cri-containerd-' + containerd.release_version + '.linux-amd64.tar.gz') }}"
+    dest: "/"
+    remote_src: yes
+    
+- name: Create a directory for containerd config
+  file:
+    path: /etc/containerd
+    state: directory      
 
 - name: Start containerd service
   systemd:
