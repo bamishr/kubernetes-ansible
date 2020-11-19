@@ -9,3 +9,8 @@ containerd_packages:
   - util-linux
   - socat
   - libselinux-python
+   - btrfs-progs
+  - libseccomp
+  - util-linux
+  - socat
+  - libselinux-python
