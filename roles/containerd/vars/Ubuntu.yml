@@ -4,3 +4,8 @@ containerd_packages:
   - tar
   - util-linux
   - socat
+   - btrfs-progs
+  - libseccomp
+  - util-linux
+  - socat
+  - libselinux-python
