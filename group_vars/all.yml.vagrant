@@ -131,3 +131,8 @@ controller_cert: /etc/kubernetes/pki/controller.pem
 controller_key: /etc/kubernetes/pki/controller-key.pem
 scheduler_cert: /etc/kubernetes/pki/scheduler.pem
 scheduler_key: /etc/kubernetes/pki/scheduler-key.pem
+
+#- use containerd instead of docker
+containerd:
+  enabled: false
+  release_version: 1.2.4
