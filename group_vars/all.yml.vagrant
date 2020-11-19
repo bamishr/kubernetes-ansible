@@ -120,3 +120,14 @@ cni_conf_dir: /etc/cni/net.d/
 
 # yum proxy for vagrant
 yum_proxy: "http://192.168.50.99:3128"
+
+ca_cert: /etc/kubernetes/pki/ca.pem
+ca_key: /etc/kubernetes/pki/ca-key.pem
+admin_key: /etc/kubernetes/pki/admin-key.pem
+admin_cert: /etc/kubernetes/pki/admin.pem
+node_cert: /etc/kubernetes/pki/node.pem
+node_key: /etc/kubernetes/pki/node-key.pem
+controller_cert: /etc/kubernetes/pki/controller.pem
+controller_key: /etc/kubernetes/pki/controller-key.pem
+scheduler_cert: /etc/kubernetes/pki/scheduler.pem
+scheduler_key: /etc/kubernetes/pki/scheduler-key.pem
