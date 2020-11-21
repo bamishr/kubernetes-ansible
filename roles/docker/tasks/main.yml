@@ -56,3 +56,9 @@
     name: "{{ docker_packages }}"
     state: latest
     update_cache: yes
+- name: Install Docker on {{ ansible_distribution }}
+  package:
+    name: "{{ docker_packages }}"
+    state: latest
+    update_cache: yes
+
