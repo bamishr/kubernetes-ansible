@@ -6,3 +6,10 @@ docker_dependencies:
 
 docker_packages:
   - docker-ce
+docker_dependencies:
+  - yum-utils
+  - lvm2
+  - device-mapper-persistent-data
+
+docker_packages:
+  - docker-ce
