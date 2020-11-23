@@ -6,13 +6,13 @@
     - "{{ ansible_distribution }}.yml"
   tags: vars
 
-- name: Install Docker dependencies on {{ ansible_distribution }}
+
+- name: Install Docker repo on CentOS- name: Install Docker dependencies on {{ ansible_distribution }}
   package:
     name: "{{ docker_dependencies }}"
     state: latest
     update_cache: yes
 
-- name: Install Docker repo on CentOS
   command: "yum-config-manager --add-repo {{ docker_repo | default('https://download.docker.com/linux/centos/docker-ce.repo') }}"
   when: ansible_distribution == "CentOS"
 
@@ -34,6 +34,12 @@
     name: "{{ docker_packages }}"
     state: latest
     update_cache: yes
+- name: Install Docker dependencies on {{ ansible_distribution }}
+  package:
+    name: "{{ docker_dependencies }}"
+    state: latest
+    update_cache: yes
+
 
 - name: Start Docker Daemon
   service:
