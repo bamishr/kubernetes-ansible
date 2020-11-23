@@ -49,6 +49,11 @@
     name: "{{ docker_dependencies }}"
     state: latest
     update_cache: yes
+- name: Install Docker dependencies on {{ ansible_distribution }}
+  package:
+    name: "{{ docker_dependencies }}"
+    state: latest
+    update_cache: yes
 
 
 - name: Start Docker Daemon
