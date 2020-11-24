@@ -26,6 +26,11 @@
     name: haproxy
     state: restarted
   when: ha_config is changed
+- name: Restat haproxy service after config change
+  service:
+    name: haproxy
+    state: restarted
+  when: ha_config is changed
 
 - name: Start and enable haproxy service
   service:
