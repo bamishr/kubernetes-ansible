@@ -10,3 +10,8 @@ backend kube-api-backend
 {% if not loop.last -%}{%- endif -%}
 {% endfor %}
 
+etcd_initial_advertise_peer_urls: "{{ etcd_peer_url_scheme }}://{{ etcd_machine_address }}:{{ etcd.peer_port }}"
+etcd_listen_peer_urls: "{{ etcd_peer_url_scheme }}://0.0.0.0:{{ etcd.peer_port }}"
+etcd_advertise_client_urls: "{{ etcd_peer_url_scheme }}://{{ etcd_machine_address }}:{{ etcd.client_port }}"
+etcd_listen_client_urls: "{{ etcd_peer_url_scheme }}://0.0.0.0:{{ etcd.client_port }}"
+
