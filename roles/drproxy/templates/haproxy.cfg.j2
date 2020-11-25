@@ -21,6 +21,12 @@ listen stats
   stats auth {{ haproxy.admin_user }}:{{ haproxy.admin_password }}
   stats admin if TRUE
   stats show-node
+backend kube-api-backend
+    mode tcp
+{% for host in groups['masters'] %}
+    server  api{{ loop.index }}  {{ host }}:{{ kube_api.secure_port }}  check
+{% if not loop.last -%}{%- endif -%}
+{% endfor %}
 
 frontend kube-api-https
    mode tcp
