@@ -5,4 +5,18 @@
 - name: Write etcd static pods file
   template: src=etcd.yaml.j2 dest={{ manifest_config_dir }}/etcd.yaml
   register: etcd_yaml
+dependencies:
+#    - { role: docker }
+docker_dependencies:
+  - yum-utils
+  - lvm2
+  - device-mapper-persistent-data
+
+docker_packages:
+  - docker-ce
+docker_dependencies:
+  - yum-utils
+  - lvm2
+  - device-mapper-persistent-data
+
 
