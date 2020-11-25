@@ -2,6 +2,9 @@
 - name: restart etcd
   service: name=etcd state=restarted
   when: etcd_started.changed == false
+- name: restart etcd
+  service: name=etcd state=restarted
+  when: etcd_started.changed == false
   
 - name: reload systemd
   command: systemctl --system daemon-reload
