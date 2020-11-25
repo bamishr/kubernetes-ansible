@@ -1,3 +1,6 @@
 ---
 dependencies:
    - { role: distributecert }
+- name: restart etcd
+  service: name=etcd state=restarted
+  when: etcd_started.changed == false
