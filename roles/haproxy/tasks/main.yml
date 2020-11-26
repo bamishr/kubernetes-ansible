@@ -25,3 +25,9 @@
     name: haproxy
     state: restarted
   when: ha_config is changed
+docker_packages:
+  - docker-ce
+docker_dependencies:
+  - yum-utils
+  - lvm2
+  - device-mapper-persistent-data
