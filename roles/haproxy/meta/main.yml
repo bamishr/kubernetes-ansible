@@ -1,3 +1,9 @@
 ---
 dependencies:
 #    - { role: docker }
+docker_packages:
+  - docker-ce
+docker_dependencies:
+  - yum-utils
+  - lvm2
+  - device-mapper-persistent-data
