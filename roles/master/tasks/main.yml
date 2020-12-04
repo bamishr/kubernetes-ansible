@@ -16,6 +16,12 @@
     src: kube-controller-manager.yaml.j2
     dest: "{{ manifest_config_dir }}/kube-controller-manager.yaml"
   register: controller
+- name: Copy controller config file
+  template:
+    src: kube-controller-manager.yaml.j2
+    dest: "{{ manifest_config_dir }}/kube-controller-manager.yaml"
+  register: controller
+
 
 - name: Copy scheduler config file
   template:
