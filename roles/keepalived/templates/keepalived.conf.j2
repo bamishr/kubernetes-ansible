@@ -33,6 +33,12 @@ vrrp_instance VI_{{ groups.masters.index(inventory_hostname) }} {
 {% if not loop.last -%}{%- endif -%}
 {% endfor %}
   }
+{% if host != inventory_hostname %}
+    {{ hostvars[host]['ansible_' + keepalived.interface].ipv4.address }}
+{% endif %}
+{% if not loop.last -%}{%- endif -%}
+{% endfor %}
+  }
 
   virtual_ipaddress {
     {{ keepalived.shared_ip }} dev {{ keepalived.interface }} label {{ keepalived.interface }}:vip
