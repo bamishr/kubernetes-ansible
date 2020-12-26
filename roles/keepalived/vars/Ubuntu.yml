@@ -2,6 +2,11 @@
 keepalived_dependencies:
   - iproute2
   - psmisc
+  - psmisc
+  - nmap-ncat
+  - ipset
+  - ipset-libs
+  - ipvsadm
 
 keepalived_packages:
   - keepalived
