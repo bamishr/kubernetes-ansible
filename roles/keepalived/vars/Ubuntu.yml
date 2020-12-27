@@ -11,7 +11,14 @@ keepalived_dependencies:
   - nmap-ncat
   - ipset
   - ipset-libs
+  - ipvsadm 
+  - ipset-libs
   - ipvsadm
+  - psmisc
+  - nmap-ncat
+  - ipset
+  - ipset-libs
+  - ipvsadm 
 
 keepalived_packages:
   - keepalived
