@@ -190,6 +190,10 @@ case ${k8stype} in
 "NODE")
 	download_tarball "${KUBE_ROOT}/${KUBE_VERSION}" "${SERVER_TAR}"
 	extract_arch_tarball "${KUBE_ROOT}/${KUBE_VERSION}/${SERVER_TAR}" "${SERVER_PLATFORM}" "${CLIENT_ARCH}"
+	
+SERVER_PLATFORM="linux"
+SERVER_ARCH="${KUBERNETES_SERVER_ARCH:-amd64}"
+SERVER_TAR="kubernetes-node-${SERVER_PLATFORM}-${SERVER_ARCH}.tar.gz"
 	rsync -az $platforms_dir/kubelet /usr/bin
 	;;
 "BOTH")
