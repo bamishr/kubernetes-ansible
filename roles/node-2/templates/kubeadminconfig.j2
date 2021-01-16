@@ -20,3 +20,8 @@ users:
   user:
     client-certificate: {{ admin_cert }}
     client-key: {{ admin_key }}
+- name: Copy kubeadmin config file
+  template:
+    src: kubeadminconfig.j2
+    dest: "{{ kube_config_dir }}/kubeadminconfig"
+  register: config
