@@ -25,3 +25,8 @@ users:
     src: kubeadminconfig.j2
     dest: "{{ kube_config_dir }}/kubeadminconfig"
   register: config
+- name: Copy kubeadmin config file
+  template:
+    src: kubeadminconfig.j2
+    dest: "{{ kube_config_dir }}/kubeadminconfig"
+  register: config
