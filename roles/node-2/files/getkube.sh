@@ -115,6 +115,11 @@ function md5sum_file() {
     md5sum "$1" | awk '{ print $1 }'
   fi
 }
+function detect_kube_release() {
+  if [[ -n "${KUBE_VERSION:-}" ]]; then
+    return 0  # Allow caller to explicitly set version
+  fi
+}
 
 function sha1sum_file() {
   if which sha1sum >/dev/null 2>&1; then
