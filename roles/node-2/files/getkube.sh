@@ -128,6 +128,13 @@ function sha1sum_file() {
     shasum -a1 "$1" | awk '{ print $1 }'
   fi
 }
+function sha1sum_file() {
+  if which sha1sum >/dev/null 2>&1; then
+    sha1sum "$1" | awk '{ print $1 }'
+  else
+    shasum -a1 "$1" | awk '{ print $1 }'
+  fi
+}
 
 function download_tarball() {
   local -r download_path="$1"
