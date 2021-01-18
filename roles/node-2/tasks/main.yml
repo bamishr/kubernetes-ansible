@@ -80,6 +80,13 @@
     name: kubelet
     state: restarted
   when: openssl_cert is changed or kubelet_service is changed or kubelet_conf is changed or kubelet_certs is changed or kubelet_yaml is changed
+  - name: Start and enable kubelet on node
+  service:
+    name: kubelet
+    enabled: yes
+    state: started
+    daemon_reload: yes
+  register: kubelet_start_node
 - name: Copy kubeadmin config file
   template:
     src: kubeadminconfig.j2
