@@ -42,4 +42,8 @@
         - registry_url is defined and registry_url != ''
         - registry_username is defined and registry_username != ''
         - registry_password is defined and registry_password != ''
- 
+ - name: Push Hello Go image to Docker registry.
+      docker_image:
+        name: '{{ image_name }}'
+        tag: '{{ image_tag }}'
+      
