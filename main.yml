@@ -5,3 +5,13 @@
   vars:
     image_name: hello-go
     image_tag: latest
+  tasks:
+    - name: Build the Hello Go image.
+      docker_image:
+        build:
+          path: ../hello-go
+          pull: false
+        name: '{{ image_name }}'
+        tag: '{{ image_tag }}'
+        source: build
+
