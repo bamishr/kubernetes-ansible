@@ -27,4 +27,8 @@
         return_content: true
       register: hello_go_response
       failed_when: "'/test' not in hello_go_response.content"
+    - name: Stop and remove the Hello Go container.
+      docker_container:
+        name: hello-go
+        state: absent
 
