@@ -38,4 +38,8 @@
         registry: '{{ registry_url }}'
         username: '{{ registry_username }}'
         password: '{{ registry_password }}'
-    
+         when:
+        - registry_url is defined and registry_url != ''
+        - registry_username is defined and registry_username != ''
+        - registry_password is defined and registry_password != ''
+ 
