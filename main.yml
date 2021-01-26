@@ -14,4 +14,11 @@
         name: '{{ image_name }}'
         tag: '{{ image_tag }}'
         source: build
+    - name: Run the Hello Go image.
+      docker_container:
+        name: hello-go
+        image: '{{ image_name }}:{{ image_tag }}'
+        state: started
+        published_ports:
+          - 8180:8180
 
