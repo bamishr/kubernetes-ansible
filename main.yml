@@ -21,4 +21,10 @@
         state: started
         published_ports:
           - 8180:8180
+    - name: Verify Hello Go is responding.
+      uri:
+        url: http://localhost:8180/test
+        return_content: true
+      register: hello_go_response
+      failed_when: "'/test' not in hello_go_response.content"
 
