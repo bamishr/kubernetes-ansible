@@ -32,3 +32,10 @@
         name: hello-go
         state: absent
 
+  post_tasks:
+    - name: Log into Docker registry.
+      docker_login:
+        registry: '{{ registry_url }}'
+        username: '{{ registry_username }}'
+        password: '{{ registry_password }}'
+    
