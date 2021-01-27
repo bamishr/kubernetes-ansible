@@ -13,3 +13,9 @@ if [ "${BREEZE_LSB_ID}" != "RedHat" ] && [ "${BREEZE_LSB_ID}" != "CentOS" ] && [
   exit
 fi
 
+if [ "${BREEZE_LSB_ID}" == "RedHat" ] && [ `version_gt 7.3 ${BREEZE_LSB_RELEASE}` ]; then
+  echo "please use RHEL 7.4/7.5/7.6/7.7 for Breeze"
+  exit
+fi
+
+
