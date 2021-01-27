@@ -29,3 +29,9 @@ if [ "${BREEZE_LSB_ID}" == "Ubuntu" ] && [ `version_gt 16 ${BREEZE_LSB_RELEASE}`
   exit
 fi
 
+if [ `version_gt 2.7 ${BREEZE_PYTHON_VERSION}` ]; then
+  echo "please use python 2.7+"
+  exit
+fi
+
+printf true
