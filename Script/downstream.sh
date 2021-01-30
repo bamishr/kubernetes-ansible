@@ -123,4 +123,15 @@ f_release_option()
     popd || return
     f_cleanup
 }
-}
+# Run the build scanerio
+f_build_option()
+{
+    f_log_info "${FUNCNAME[0]}"
+    f_common_steps
+    pushd "${_build_dir}" || return
+        f_log_info "BUILD WD: ${PWD}"
+        make build
+    popd || return
+    f_copy_collection_to_working_dir
+    f_cleanup
+}}
