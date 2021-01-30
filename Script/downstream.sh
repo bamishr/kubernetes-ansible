@@ -79,3 +79,14 @@ f_common_steps()
     f_create_collection_dir_structure
     f_text_sub
 }}}}}
+# Run the test sanity scanerio
+f_test_sanity_option()
+{
+    f_log_info "${FUNCNAME[0]}"
+    f_common_steps
+    pushd "${_build_dir}" || return
+        f_log_info "SANITY TEST PWD: ${PWD}"
+        make test-sanity
+    popd || return
+    f_cleanup
+}
