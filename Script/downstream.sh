@@ -37,4 +37,12 @@ f_prep()
     _tmp_dir=$(mktemp -d)
     _build_dir="${_tmp_dir}/ansible_collections/kubernetes/core"
     mkdir -p "${_build_dir}"
-}
+f_show_help()
+{
+    printf "Usage: downstream.sh [OPTION]\n"
+    printf "\t-s\t\tCreate a temporary downstream release and perform sanity tests.\n"
+    printf "\t-i\t\tCreate a temporary downstream release and perform integration tests.\n"
+    printf "\t-m\t\tCreate a temporary downstream release and perform molecule tests.\n"
+    printf "\t-b\t\tCreate a downstream release and stage for release.\n"
+    printf "\t-r\t\tCreate a downstream release and publish release.\n"
+}}
