@@ -89,4 +89,14 @@ f_test_sanity_option()
         make test-sanity
     popd || return
     f_cleanup
-}
+# Run the test integration
+f_test_integration_option()
+{
+    f_log_info "${FUNCNAME[0]}"
+    f_common_steps
+    pushd "${_build_dir}" || return
+        f_log_info "INTEGRATION TEST WD: ${PWD}"
+        make test-integration
+    popd || return
+    f_cleanup
+}}
