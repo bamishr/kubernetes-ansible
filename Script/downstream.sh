@@ -134,4 +134,9 @@ f_build_option()
     popd || return
     f_copy_collection_to_working_dir
     f_cleanup
+# If no options are passed, display usage and exit
+if [[ "${#}" -eq "0" ]]; then
+    f_show_help
+    f_exit 0
+fi
 }}
