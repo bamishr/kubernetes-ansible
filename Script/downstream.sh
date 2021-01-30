@@ -45,4 +45,17 @@ f_show_help()
     printf "\t-m\t\tCreate a temporary downstream release and perform molecule tests.\n"
     printf "\t-b\t\tCreate a downstream release and stage for release.\n"
     printf "\t-r\t\tCreate a downstream release and publish release.\n"
-}}
+f_text_sub()
+{
+    # Switch FQCN and dependent components
+    sed -i.bak "s/community-kubernetes/kubernetes-core/" "${_build_dir}/Makefile"
+    sed -i.bak "s/community\/kubernetes/kubernetes\/core/" "${_build_dir}/Makefile"
+    sed -i.bak "s/^VERSION\:/VERSION: ${DOWNSTREAM_VERSION}/" "${_build_dir}/Makefile"
+    sed -i.bak "s/community.kubernetes/kubernetes.core/" "${_build_dir}/galaxy.yml"
+    sed -i.bak "s/name\:.*$/name: core/" "${_build_dir}/galaxy.yml"
+    sed -i.bak "s/namespace\:.*$/namespace: kubernetes/" "${_build_dir}/galaxy.yml"
+    sed -i.bak "s/^version\:.*$/version: ${DOWNSTREAM_VERSION}/" "${_build_dir}/galaxy.yml"
+    find "${_build_dir}" -type f -exec sed -i.bak "s/community\.kubernetes/kubernetes\.core/g" {} \;
+    sed -i.bak "s/a\.k\.a\. \`kubernetes\.core\`/formerly known as \`community\.kubernetes\`/" "${_build_dir}/README.md";
+    find "${_build_dir}" -type f -name "*.bak" -delete
+}}}
