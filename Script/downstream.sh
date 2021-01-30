@@ -139,4 +139,17 @@ if [[ "${#}" -eq "0" ]]; then
     f_show_help
     f_exit 0
 fi
+# Handle options
+while getopts ":simrb" option
+do
+  case $option in
+    s)
+        f_test_sanity_option
+        ;;
+    i)
+        f_test_integration_option
+        ;;
+    m)
+        f_test_molecule_option
+        ;;
 }}
