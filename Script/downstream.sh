@@ -72,4 +72,10 @@ f_copy_collection_to_working_dir()
     # Copy the Collection build result into original working dir
     cp "${_build_dir}"/*.tar.gz ./
 }
-}}}}
+f_common_steps()
+{
+    f_log_info "${FUNCNAME[0]}"
+    f_prep
+    f_create_collection_dir_structure
+    f_text_sub
+}}}}}
