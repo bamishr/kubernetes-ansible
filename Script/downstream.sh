@@ -25,3 +25,12 @@ f_prep()
         .yamllint
     )
 
+    # Directories to recursively copy downstream (relative repo root dir path)
+    _dir_manifest=(
+        changelogs
+        meta
+        plugins
+        tests
+        molecule
+    )
+
