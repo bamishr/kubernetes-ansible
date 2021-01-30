@@ -66,4 +66,10 @@ f_cleanup()
             rm -fr "${_build_dir}"
         fi
     fi
+f_copy_collection_to_working_dir()
+{
+    f_log_info "${FUNCNAME[0]}"
+    # Copy the Collection build result into original working dir
+    cp "${_build_dir}"/*.tar.gz ./
+}
 }}}}
