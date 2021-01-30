@@ -111,4 +111,16 @@ f_test_molecule_option()
         make test-molecule
     popd || return
     f_cleanup
+
+# Run the release scanerio
+f_release_option()
+{
+    f_log_info "${FUNCNAME[0]}"
+    f_common_steps
+    pushd "${_build_dir}" || return
+        f_log_info "RELEASE WD: ${PWD}"
+        make release
+    popd || return
+    f_cleanup
+}
 }
