@@ -58,4 +58,12 @@ f_text_sub()
     find "${_build_dir}" -type f -exec sed -i.bak "s/community\.kubernetes/kubernetes\.core/g" {} \;
     sed -i.bak "s/a\.k\.a\. \`kubernetes\.core\`/formerly known as \`community\.kubernetes\`/" "${_build_dir}/README.md";
     find "${_build_dir}" -type f -name "*.bak" -delete
-}}}
+f_cleanup()
+{
+    f_log_info "${FUNCNAME[0]}"
+    if [[ -n ${KEEP_DOWNSTREAM_TMPDIR} ]]; then
+        if [[ -d ${_build_dir} ]]; then
+            rm -fr "${_build_dir}"
+        fi
+    fi
+}}}}
