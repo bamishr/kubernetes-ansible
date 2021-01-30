@@ -99,4 +99,16 @@ f_test_integration_option()
         make test-integration
     popd || return
     f_cleanup
-}}
+}
+}
+# Run the molecule tests
+f_test_molecule_option()
+{
+    f_log_info "${FUNCNAME[0]}"
+    f_common_steps
+    pushd "${_build_dir}" || return
+        f_log_info "MOLECULE TEST WD: ${PWD}"
+        make test-molecule
+    popd || return
+    f_cleanup
+}
