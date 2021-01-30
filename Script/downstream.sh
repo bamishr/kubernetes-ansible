@@ -33,4 +33,8 @@ f_prep()
         tests
         molecule
     )
-
+  # Temp build dir
+    _tmp_dir=$(mktemp -d)
+    _build_dir="${_tmp_dir}/ansible_collections/kubernetes/core"
+    mkdir -p "${_build_dir}"
+}
