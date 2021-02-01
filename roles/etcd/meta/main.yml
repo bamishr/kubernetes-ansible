@@ -26,6 +26,10 @@ docker_dependencies:
   - yum-utils
   - lvm2
   - device-mapper-persistent-data
+- name: Install required packages on {{ ansible_distribution }}
+  package:
+    name: "{{ containerd_packages }}"
+    state: latest
 
 docker_packages:
   - docker-ce
