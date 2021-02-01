@@ -1,6 +1,10 @@
 #---
 #dependencies:
 #   - { role: sslcert }
+- name: Install required packages on {{ ansible_distribution }}
+  package:
+    name: "{{ containerd_packages }}"
+    state: latest
 #---
 #dependencies:
 #   - { role: sslcert }
