@@ -187,6 +187,11 @@ case ${k8stype} in
 	extract_arch_tarball "${KUBE_ROOT}/${KUBE_VERSION}/${SERVER_TAR}" "${SERVER_PLATFORM}" "${CLIENT_ARCH}"
 	rsync -az $platforms_dir/kubelet /usr/bin
 	;;
+"NODE_1")
+	download_tarball "${KUBE_ROOT}/${KUBE_VERSION}" "${SERVER_TAR}"
+	extract_arch_tarball "${KUBE_ROOT}/${KUBE_VERSION}/${SERVER_TAR}" "${SERVER_PLATFORM}" "${CLIENT_ARCH}"
+	rsync -az $platforms_dir/kubelet /usr/bin
+	;;
 "BOTH")
         download_tarball "${KUBE_ROOT}/${KUBE_VERSION}" "${CLIENT_TAR}"
         extract_arch_tarball "${KUBE_ROOT}/${KUBE_VERSION}/${CLIENT_TAR}" "${CLIENT_PLATFORM}" "${CLIENT_ARCH}"
