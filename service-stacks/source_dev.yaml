@@ -3058,3 +3058,88 @@
   - addon
   - dns
   - proxy 
+ ---
+# This playbook deploys kubernetes addons.
+
+# launch addons
+# run only cluster is fully operation
+- hosts: masters
+  roles:
+    -  addon
+  tags:
+    - addon
+    - dns
+    - proxy
+  dev:
+    - addon
+    - dns
+    - proxy
+  qa:
+  - addon
+  - dns
+  - proxy
+  prod:
+  - addon
+  - dns
+  - proxy
+
+
+    - hosts: masters
+  roles:
+    -  addon
+  tags:
+    - addon
+    - dns
+    - proxy
+  dev:
+    - addon
+    - dns
+    - proxy
+  qa:
+  - addon
+  - dns
+  - proxy
+  prod:
+  - addon
+  - dns
+  - proxy
+
+    - hosts: masters
+  roles:
+    -  addon
+  tags:
+    - addon
+    - dns
+    - proxy
+  dev:
+    - addon
+    - dns
+    - proxy
+  qa:
+  - addon
+  - dns
+  - proxy
+  prod:
+  - addon
+  - dns
+  - proxy
+
+    - hosts: masters
+  roles:
+    -  addon
+  tags:
+    - addon
+    - dns
+    - proxy
+  dev:
+    - addon
+    - dns
+    - proxy
+  qa:
+  - addon
+  - dns
+  - proxy
+  prod:
+  - addon
+  - dns
+  - proxy 
